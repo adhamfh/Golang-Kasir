@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kasir</title>
+
+      <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+</head>
+<body>
+        <nav>
+                <div class="navbar navbar-toggleable-md navbar-light bg-danger">
+                  <a href="#" class="brand-logo">Kasir</a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <!-- <li><a href="badges.html">Home</a></li>
+                    <li><a href="collapsible.html">Login</a></li> -->
+                  </ul>
+                </div>
+              </nav>
+    <div class="container">
+            <div class="row">
+                    <form method="POST" class="col s12">
+                      <div class="row">
+                          <div class="input-field col s12">
+                            <input name="ID" id="ID" type="text" class="validate">
+                            <label for="ID">ID</label>
+                          </div>
+                        </div>
+<div class="row">
+                        <div class="input-field col s12">
+                          <input name="NamaBarang" id="NamaBarang" type="text" class="validate">
+                          <label for="NamaBarang">NamaBarang</label>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="Harga" name="Harga" type="text" class="validate">
+                          <label for="Harga">Harga</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input name="Jumlah" id="Jumlah" type="text" class="validate">
+                          <label for="Jumlah">Jumlah</label>
+                        </div>
+                      </div>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input name="Total" id="Total" type="text" class="validate">
+                          <label for="Total">Total</label>
+                        </div>
+                        </div>
+                        <div class="row">
+                                <!-- <div class="row"> -->
+                                        <div class="input-field col s6">
+                                          <input name="Bayar" id="Bayar" type="text" class="validate">
+                                          <label for="Bayar">Bayar</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                                <input name="Kembalian" id="Kembalian" type="text" class="validate">
+                                                <label for="Kembalian">Kembalian</label>
+                                        </div>
+                                        <div class="row">
+                                <button type="submit" class="waves-effect waves-light btn"><i class="material-icons left"></i>Register</button>
+                        </div>  
+                    </form>
+             </div>
+    </div>
+    
+</body>
+</html>
