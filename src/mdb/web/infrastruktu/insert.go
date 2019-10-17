@@ -17,7 +17,7 @@ type barang struct {
 	Bayar      int
 	Kembalian  int
 	menu       string
-	TotalBayar int
+	// TotalBayar int
 }
 type menuawal struct {
 	IDBarang   string
@@ -58,7 +58,16 @@ func TambahBarang() {
 		return
 	}
 	fmt.Println("insert success!")
+	fmt.Printf("Apakah ada barang lain ? (Y/T)")
+	fmt.Scan(&tambah.menu)
+	switch tambah.menu {
+	case "Y", "y":
+		sqlExec()
+	case "T", "t":
+		break
+	}
 	defer db.Close()
+
 }
 func sqlExec() {
 	db, err := connect()
@@ -90,7 +99,7 @@ func sqlExec() {
 		sqlExec()
 	case "T", "t":
 
-		fmt.Printf("total bayar :%d\n", result.TotalBayar)
+		// fmt.Printf("total bayar :%d\n", result.TotalBayar)
 		break
 	default:
 		fmt.Print("pilihan salah")
