@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Okt 2019 pada 04.58
+-- Waktu pembuatan: 17 Okt 2019 pada 13.00
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.0
 
@@ -39,7 +39,8 @@ CREATE TABLE `databarang` (
 --
 
 INSERT INTO `databarang` (`ID`, `NamaBarang`, `Harga`) VALUES
-('b001', 'odol', 10000);
+('b001', 'odol', 10000),
+('b002', 'sabun', 5000);
 
 -- --------------------------------------------------------
 
@@ -67,9 +68,10 @@ INSERT INTO `login` (`ID`, `uname`, `passw`) VALUES
 --
 
 CREATE TABLE `simpanbarang` (
-  `ID` varchar(10) NOT NULL,
+  `ID` int(11) NOT NULL,
+  `IDBarang` varchar(7) NOT NULL,
   `NamaBarang` varchar(255) NOT NULL,
-  `Harga` bigint(11) NOT NULL,
+  `Harga` int(11) NOT NULL,
   `Jumlah` int(11) NOT NULL,
   `Total` int(11) NOT NULL,
   `Tanggal` int(11) NOT NULL,
@@ -81,10 +83,12 @@ CREATE TABLE `simpanbarang` (
 -- Dumping data untuk tabel `simpanbarang`
 --
 
-INSERT INTO `simpanbarang` (`ID`, `NamaBarang`, `Harga`, `Jumlah`, `Total`, `Tanggal`, `Bayar`, `Kembalian`) VALUES
-('b001', 'odol', 10000, 3, 30000, 2019, 35000, 5000),
-('b001', 'odol', 10000, 2, 20000, 17, 21000, 1000),
-('b001', 'odol', 10000, 2, 20000, 2019, 22000, 2000);
+INSERT INTO `simpanbarang` (`ID`, `IDBarang`, `NamaBarang`, `Harga`, `Jumlah`, `Total`, `Tanggal`, `Bayar`, `Kembalian`) VALUES
+(18, 'b002', 'sabun', 5000, 2, 0, 0, 0, 0),
+(19, 'b002', 'sabun', 5000, 2, 0, 0, 0, 0),
+(20, 'b002', 'sabun', 5000, 3, 0, 0, 0, 0),
+(21, 'b002', 'sabun', 5000, 5, 25000, 2019, 25000, 25000),
+(22, 'b002', 'sabun', 5000, 4, 20000, 2019, 20000, 0);
 
 --
 -- Indexes for dumped tables
@@ -103,6 +107,12 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indeks untuk tabel `simpanbarang`
+--
+ALTER TABLE `simpanbarang`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -111,6 +121,12 @@ ALTER TABLE `login`
 --
 ALTER TABLE `login`
   MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `simpanbarang`
+--
+ALTER TABLE `simpanbarang`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
