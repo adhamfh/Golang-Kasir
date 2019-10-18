@@ -68,6 +68,37 @@ func TambahBarang() {
 		return
 	}
 	defer db.Close()
+	// var result1 = databarang{}
+	rows, err := db.Query("select * from databarang")
+
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	defer rows.Close()
+
+	var result []databarang
+
+	for rows.Next() {
+		var each = databarang{}
+		var err = rows.Scan(&each.ID, &each.NamaBarang, &each.Harga)
+
+		if err != nil {
+			fmt.Println(err.Error())
+			return
+		}
+
+		result = append(result, each)
+	}
+
+	if err = rows.Err(); err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	fmt.Println("==List Data Barang==")
+	for _, each := range result {
+		fmt.Println(each.ID, each.NamaBarang, each.Harga)
+	}
 	var tambah = barang{}
 	fmt.Print("Masukan ID Barang :")
 	fmt.Scan(&tambah.IDBarang)
@@ -228,6 +259,37 @@ func sqlExec() {
 		return
 	}
 	defer db.Close()
+	// var result1 = databarang{}
+	rows, err := db.Query("select * from databarang")
+
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	defer rows.Close()
+
+	var result2 []databarang
+
+	for rows.Next() {
+		var each = databarang{}
+		var err = rows.Scan(&each.ID, &each.NamaBarang, &each.Harga)
+
+		if err != nil {
+			fmt.Println(err.Error())
+			return
+		}
+
+		result2 = append(result2, each)
+	}
+
+	if err = rows.Err(); err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	fmt.Println("==List Data Barang==")
+	for _, each := range result2 {
+		fmt.Println(each.ID, each.NamaBarang, each.Harga)
+	}
 	var result = barang{}
 	fmt.Print("masukan ID: ")
 	fmt.Scan(&result.IDBarang)
